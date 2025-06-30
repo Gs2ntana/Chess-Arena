@@ -6,7 +6,7 @@ import lombok.ToString;
 @ToString
 public class ChessPosition{
 	
-	@Getter final char column; 
+	@Getter private final char column; 
 	@Getter private final int row;
 	
 	public ChessPosition(char column, int row){

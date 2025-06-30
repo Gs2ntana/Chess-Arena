@@ -3,7 +3,7 @@ package com.chess.arena.models;
 import com.chess.arena.utils.Color;
 
 public abstract class ChessPiece {
-	private Color color;
+	private final Color color;
 	protected final Board board;
 	public abstract boolean[][] possibleMoves(ChessPosition position);
 	
@@ -20,4 +20,9 @@ public abstract class ChessPiece {
 		ChessPiece pieceAtPosition = board.piece(position);
 		return pieceAtPosition == null || pieceAtPosition.getColor() != this.color;
 	}
+	
+	protected boolean isThereOpponentPiece(ChessPosition position) {
+        ChessPiece p = board.piece(position);
+        return p != null && p.getColor() != this.getColor();
+    }
 }
